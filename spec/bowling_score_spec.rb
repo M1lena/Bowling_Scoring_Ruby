@@ -3,7 +3,7 @@ require 'bowling_score'
 describe BowlingScore do
   subject { BowlingScore.new }
 
-  context 'bowling game game without strikes' do
+  context 'bowling game without strikes for every frame' do
     it 'has an initial score of zero' do
       expect(subject.score).to eq 0
     end
@@ -37,10 +37,32 @@ describe BowlingScore do
     end
 
     it 'calculates spare form first roll into score of third frame' do
-      subject.first_frame(3, 7)
-      subject.second_frame(2, 1)
+      subject.first_frame(0, 1)
+      subject.second_frame(10, 0)
       subject.third_frame(2, 1)
-      expect(subject.score).to eq 18
+      expect(subject.score).to eq 16
+    end
+
+    # it 'calculates score for two rolls of fourth frame' do
+    #   subject.first_frame(3, 7)
+    #   subject.second_frame(2, 1)
+    #   subject.third_frame(2, 1)
+    #   subject.fourth_frame(5, 4)
+    #   expect(subject.score).to eq 27
+    # end
+
+    # it 'calculates spare form first roll into score of fourth frame' do
+    #   subject.first_frame(3, 7)
+    #   subject.second_frame(2, 1)
+    #   subject.third_frame(10, 0)
+    #   subject.fourth_frame(5, 2)
+    #   expect(subject.score).to eq 37
+    # end
+  end
+
+  context 'bowling perfect game' do
+    xit 'has an initial score of zero' do
+      expect(subject.score).to eq 0
     end
   end
 end
