@@ -43,21 +43,21 @@ describe BowlingScore do
       expect(subject.score).to eq 16
     end
 
-    # it 'calculates score for two rolls of fourth frame' do
-    #   subject.first_frame(3, 7)
-    #   subject.second_frame(2, 1)
-    #   subject.third_frame(2, 1)
-    #   subject.fourth_frame(5, 4)
-    #   expect(subject.score).to eq 27
-    # end
+    it 'calculates score for two rolls of fourth frame' do
+      subject.first_frame(3, 7)
+      subject.second_frame(2, 1)
+      subject.third_frame(2, 1)
+      subject.fourth_frame(5, 4)
+      expect(subject.score).to eq 27
+    end
 
-    # it 'calculates spare form first roll into score of fourth frame' do
-    #   subject.first_frame(3, 7)
-    #   subject.second_frame(2, 1)
-    #   subject.third_frame(10, 0)
-    #   subject.fourth_frame(5, 2)
-    #   expect(subject.score).to eq 37
-    # end
+    it 'calculates spare form first roll into score of fourth frame' do
+      subject.first_frame(3, 7)
+      subject.second_frame(2, 1)
+      subject.third_frame(10, 0)
+      subject.fourth_frame(5, 2)
+      expect(subject.score).to eq 37
+    end
   end
 
   context 'bowling perfect game' do

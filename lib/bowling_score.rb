@@ -54,9 +54,9 @@ class BowlingScore
     @score = score + third_total
   end
 
-  # def third_spare?
-  #   third_raw == 10
-  # end
+  def third_spare?
+    third_raw == 10
+  end
 
   def third_extra(roll1, _roll2)
     second_spare? ? extra = roll1 : extra = 0
@@ -67,34 +67,16 @@ class BowlingScore
     extra == 0 unless second_spare?
   end
 
-  # def fourth_frame(roll1, roll2)
-  #   fail 'there are only 10 pins to hit!' if invalid_rolls(roll1, roll2)
-  #   fail 'no negative rolls allowed' if negative_rolls(roll1, roll2)
-  #   @fourth_raw = roll1 + roll2
-  #   fourth_total = roll1 + roll2 + fourth_extra(roll1, roll2)
-  #   @score = score + fourth_total
-  # end
+  def fourth_frame(roll1, roll2)
+    fail 'there are only 10 pins to hit!' if invalid_rolls(roll1, roll2)
+    fail 'no negative rolls allowed' if negative_rolls(roll1, roll2)
+    @fourth_raw = roll1 + roll2
+    fourth_total = roll1 + roll2 + fourth_extra(roll1, roll2)
+    @score = score + fourth_total
+  end
 
-  # def fourth_extra(roll1, _roll2)
-  #   third_spare? ? extra = roll1 : extra = 0
-  #   extra
-  # end
+  def fourth_extra(roll1, _roll2)
+    third_spare? ? extra = roll1 : extra = 0
+    extra
+  end
 end
-
-bs = BowlingScore.new
-puts bs.score
-
-bs.first_frame(10, 0)
-puts bs.score
-
-bs.second_frame(2, 1)
-
-puts "second frame score is #{bs.score}"
-
-bs.third_frame(2, 1)
-puts bs.score
-puts "third frame score is #{bs.score}"
-
-# bs.fourth_frame(2, 1)
-# puts bs.fourth_total
-# puts "fourth frame score is #{bs.score}"
